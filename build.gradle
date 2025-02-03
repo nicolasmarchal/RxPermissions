@@ -1,19 +1,17 @@
 buildscript {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:4.0.0'
-        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
-        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.0'
     }
 }
 
 allprojects {
     repositories {
         google()
-        jcenter()
+        mavenCentral()
     }
 }
 
@@ -36,24 +34,24 @@ ext {
     // Workaround for https://github.com/robolectric/robolectric/issues/1932
     khronosOpenGLApi = "org.khronos:opengl-api:gl1.1-android-2.1_r1"
 
-    bintrayRepo = 'tbruyelle'
-    bintrayName = 'RxPermissions2'
+//    bintrayRepo = 'tbruyelle'
+//    bintrayName = 'RxPermissions2'
 
-    publishedGroupId = 'com.tbruyelle.rxpermissions2'
-    artifact = 'rxpermissions'
-    libraryName = 'RxPermissions'
-    libraryVersion = '0.9.5'
+//    publishedGroupId = 'com.tbruyelle.rxpermissions2'
+//    artifact = 'rxpermissions'
+//    libraryName = 'RxPermissions'
+//    libraryVersion = '0.9.5'
 
-    libraryDescription = 'A wrapper for Android 6.0 permissions'
+//    libraryDescription = 'A wrapper for Android 6.0 permissions'
 
-    siteUrl = 'https://github.com/tbruyelle/RxPermissions'
-    gitUrl = 'https://github.com/tbruyelle/RxPermissions.git'
+//    siteUrl = 'https://github.com/tbruyelle/RxPermissions'
+//    gitUrl = 'https://github.com/tbruyelle/RxPermissions.git'
 
-    developerId = 'tbruyelle'
-    developerName = 'Thomas Bruyelle'
-    developerEmail = 'thomas.bruyelle@gmail.com'
+//    developerId = 'tbruyelle'
+//    developerName = 'Thomas Bruyelle'
+//    developerEmail = 'thomas.bruyelle@gmail.com'
 
-    licenseName = 'The Apache Software License, Version 2.0'
-    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-    allLicenses = ["Apache-2.0"]
+//    licenseName = 'The Apache Software License, Version 2.0'
+//    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+//    allLicenses = ["Apache-2.0"]
 }
