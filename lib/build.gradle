@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply from: 'jitpack.gradle'
+apply plugin: 'maven-publish'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -40,6 +40,32 @@ dependencies {
     testImplementation rootProject.ext.khronosOpenGLApi
 }
 
-// Commented to use JitPack instead of bintray
-//apply from: 'install.gradle'
-//apply from: 'bintray.gradle'
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    archiveClassifier.set('sources')
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    archiveClassifier.set('javadoc')
+    from javadoc.destinationDir
+}
+
+publishing {
+    publications {
+        release(MavenPublication) {
+            from components.release
+
+            groupId = 'com.nicolasmarchal.rxpermissions'
+            artifactId = 'rxpermissions'
+            version = libraryVersion
+
+            artifact sourcesJar
+            artifact javadocJar
+        }
+    }
+}
